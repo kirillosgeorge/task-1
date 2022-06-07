@@ -1,0 +1,25 @@
+# this playbook contians base plays for all nodes 
+
+- name: Creating developers groups
+  group:
+    name: "developers"
+    state: present
+
+- name: Creating users and adding them developers group
+  user:
+    name: "{{ item.name }}"
+    state: present
+    groups: "{{ item.groups }}"
+  loop:
+    - { name: 'bob', groups: 'developers'}
+    - { name: 'peter', groups: 'developers'}
+
+- authorized_key:
+    user: bob 
+    state: present
+    key: "{{ lookup('file', './user_id_rsa.pub') }}"
+
+- authorized_key:
+    user: peter 
+    state: present
+    key: "{{ lookup('file', './user_id_rsa.pub') }}"

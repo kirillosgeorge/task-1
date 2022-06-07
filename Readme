@@ -1,0 +1,9 @@
+List of assumptions :
+1- i will use ansible for this challenge 1 becuase  ansible is build by python.
+4- we will add copied list of servers ip address to hosts file on local machine in /etc/ansible/hosts
+5- we will create ansible folder contian all the configs called ansible-files
+6-ansible-files consists of : 1- hosts 2- roles folder 3- site.yml
+7- we created the ssh key and send to copied list of servers to authorized_keys
+8- we made main.yml file in roles/base/tasks. here we create developer group and all the user mentinoed in json file on all the servers.
+9- when we execute site.yml it will deploy all the configuration mentioned in main.yml 
+
